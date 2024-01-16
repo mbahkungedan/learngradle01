@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.nasrul'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'com.google.guava:guava:29.0-jre'
+    testImplementation 'junit:junit:4.13'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+task greetingTask(){
+    group "Custom Gradle Name"
+    doLast {
+        String name = username ? username : 'Gradle User'
+        println "Hello, $name! Welcome to Gradle World!"
+    }
+}
